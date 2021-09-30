@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Winner from './src/components/Winner';
-import Menu from './src/components/Menu';
-import Easy from './src/components/Easy';
-import Medium from './src/components/Medium';
-import Hard from './src/components/Hard';
-import VeryHard from './src/components/VeryHard';
+import Winner from './src/pages/Winner/Winner';
+import Menu from './src/pages/Menu/Menu';
+import Easy from './src/pages/Easy/Easy';
+import Medium from './src/pages/Medium/Medium';
+import Hard from './src/pages/Hard/Hard';
+import VeryHard from './src/pages/VeryHard/VeryHard';
+import Back from './src/pages/Menu/Back';
+import MenuGame from './src/pages/Menu/MenuGame';
 
 export default function App() {
     const [screen, setScreen] = useState('menu');
@@ -596,29 +598,9 @@ export default function App() {
     function getScreenMenu() {
         return (
             <View style={styles.containerHome}>
-               <Menu />
-                <View style={styles.inlineItensHome}>
-                    <TouchableOpacity
-                        onPress={() => startGameEasy('X')}
-                        style={styles.boxPlayerHomeEasy}>
-                        <Text style={styles.playerXEasy}>Easy</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => startGameMedium('X')}
-                        style={styles.boxPlayerHomeMedium}>
-                        <Text style={styles.playerXEasy}>Medium</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => startGameHard('X')}
-                        style={styles.boxPlayerHomeHard}>
-                        <Text style={styles.playerXEasy}>Hard</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => startGameVeryHard('X')}
-                        style={styles.boxPlayerHomeVeryHard}>
-                        <Text style={styles.playerXEasy}>Very Hard</Text>
-                    </TouchableOpacity>
-                </View>
+                <Menu />
+                <MenuGame startGameEasy={startGameEasy} startGameMedium={startGameMedium}
+                    startGameHard={startGameHard} startGameVeryHard={startGameVeryHard} />
             </View>
         );
     };
@@ -646,11 +628,7 @@ export default function App() {
                     )
                 })
                 }
-                <TouchableOpacity
-                    onPress={() => setScreen('menu')}
-                    style={styles.buttonBackMenu}>
-                    <Text style={styles.textBackMenu}>Back to menu</Text>
-                </TouchableOpacity>
+                <Back setScreen={setScreen} />
             </View>
         );
     };
@@ -678,11 +656,7 @@ export default function App() {
                     )
                 })
                 }
-                <TouchableOpacity
-                    onPress={() => setScreen('menu')}
-                    style={styles.buttonBackMenu}>
-                    <Text style={styles.textBackMenu}>Back to menu</Text>
-                </TouchableOpacity>
+                <Back setScreen={setScreen} />
             </View>
         );
     };
@@ -710,11 +684,7 @@ export default function App() {
                     )
                 })
                 }
-                <TouchableOpacity
-                    onPress={() => setScreen('menu')}
-                    style={styles.buttonBackMenu}>
-                    <Text style={styles.textBackMenu}>Back to menu</Text>
-                </TouchableOpacity>
+                <Back setScreen={setScreen} />
             </View>
         );
     };
@@ -742,11 +712,7 @@ export default function App() {
                     )
                 })
                 }
-                <TouchableOpacity
-                    onPress={() => setScreen('menu')}
-                    style={styles.buttonBackMenu}>
-                    <Text style={styles.textBackMenu}>Back to menu</Text>
-                </TouchableOpacity>
+                <Back setScreen={setScreen} />
             </View>
         );
     };
@@ -755,11 +721,7 @@ export default function App() {
         return (
             <View style={styles.containerWin}>
                 <Winner winner={winner} />
-                <TouchableOpacity
-                    onPress={() => setScreen('menu')}
-                    style={styles.buttonBackMenu}>
-                    <Text style={styles.textBackMenu}>Back to menu</Text>
-                </TouchableOpacity>
+                <Back setScreen={setScreen} />
             </View>
         );
     };
@@ -802,16 +764,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'rgb(19, 20, 31)',
     },
-    backgroundEasy: {
-        flex: 1,
-        resizeMode: 'cover'
-    },
     playerX: {
         fontSize: 60,
-        color: '#fff',
-    },
-    playerXEasy: {
-        fontSize: 16,
         color: '#fff',
     },
     playerO: {
@@ -826,59 +780,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         margin: 0.5,
         borderRadius: 1,
-
-    },
-    boxPlayerHomeEasy: {
-        width: 81,
-        height: 35,
-        backgroundColor: 'rgb(0, 64, 128))',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 5,
-        borderRadius: 5,
-        marginTop: 240,
-    },
-    boxPlayerHomeMedium: {
-        width: 81,
-        height: 35,
-        backgroundColor: 'rgb(29, 188, 146)',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 5,
-        borderRadius: 5,
-        marginTop: 240,
-    },
-    boxPlayerHomeHard: {
-        width: 81,
-        height: 35,
-        backgroundColor: 'rgb(121, 0, 255)',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 5,
-        borderRadius: 5,
-        marginTop: 240,
-    },
-    boxPlayerHomeVeryHard: {
-        width: 81,
-        height: 35,
-        backgroundColor: 'rgb(250, 91, 69)',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 5,
-        borderRadius: 5,
-        marginTop: 240,
     },
     inlineItens: {
         flexDirection: 'row',
-    },
-    inlineItensHome: {
-        flexDirection: 'row',
-    },
-    buttonBackMenu: {
-        marginTop: 30,
-    },
-    textBackMenu: {
-        color: '#fff',
-        fontSize: 20,
     },
 });

@@ -1,14 +1,15 @@
 import React from 'react';
-import { Text, StatusBar, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
+import StatusBarWinner from './StatusBar';
 import AnimatedLottieView from 'lottie-react-native';
-import youWin from '../assets/img/YouWin.json';
-import youLose from '../assets/img/YouLose.json'
-import draw from '../assets/img/Draw.json';
+import youWin from '../../assets/animations/YouWin.json';
+import youLose from '../../assets/animations/YouLose.json';
+import draw from '../../assets/animations/Draw.json';
 
 export default function Winner(props) {
     return (
         <>
-            <StatusBar backgroundColor="rgb(254, 213, 16)" />
+            <StatusBarWinner />
             {
                 props.winner === '' &&
                 <>
