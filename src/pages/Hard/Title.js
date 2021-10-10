@@ -1,17 +1,9 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
+import HardStyles from './HardStyles';
 
 export default function TitleHard() {
     return (
-        <Text style={styles.title}>Hard</Text>      
+        <Text style={HardStyles.title}>Hard</Text>      
     );
 };
-
-const styles = StyleSheet.create({
-    title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: '#fff',
-        marginBottom: 70,
-    },
-});

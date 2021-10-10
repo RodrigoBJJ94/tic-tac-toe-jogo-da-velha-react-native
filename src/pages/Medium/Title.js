@@ -1,17 +1,9 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
+import MediumStyles from './MediumStyles';
 
 export default function TitleMedium() {
     return (
-        <Text style={styles.title}>Medium</Text>      
+        <Text style={MediumStyles.title}>Medium</Text>      
     );
 };
-
-const styles = StyleSheet.create({
-    title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: '#fff',
-        marginBottom: 70,
-    },
-});

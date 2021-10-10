@@ -1,17 +1,9 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
+import VeryHardStyles from './VeryHardStyles';
 
 export default function TitleVeryHard() {
     return (
-        <Text style={styles.title}>Very Hard</Text>      
+        <Text style={VeryHardStyles.title}>Very Hard</Text>      
     );
 };
-
-const styles = StyleSheet.create({
-    title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: '#fff',
-        marginBottom: 70,
-    },
-});

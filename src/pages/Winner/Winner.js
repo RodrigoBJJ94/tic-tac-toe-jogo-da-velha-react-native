@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
 import StatusBarWinner from './StatusBar';
 import AnimatedLottieView from 'lottie-react-native';
 import youWin from '../../assets/animations/YouWin.json';
 import youLose from '../../assets/animations/YouLose.json';
 import draw from '../../assets/animations/Draw.json';
+import WinnerStyles from './WinnerStyles';
 
 export default function Winner(props) {
     return (
@@ -15,7 +16,7 @@ export default function Winner(props) {
                 <>
                     <AnimatedLottieView
                         source={draw} autoPlay loop />
-                    <Text style={styles.winner}>Draw</Text>
+                    <Text style={WinnerStyles.winner}>Draw</Text>
                 </>
             }
             {
@@ -23,7 +24,7 @@ export default function Winner(props) {
                 <>
                     <AnimatedLottieView
                         source={youWin} autoPlay loop />
-                    <Text style={styles.winner}>You win!</Text>
+                    <Text style={WinnerStyles.winner}>You win!</Text>
                 </>
             }
             {
@@ -31,18 +32,9 @@ export default function Winner(props) {
                 <>
                     <AnimatedLottieView
                         source={youLose} autoPlay loop />
-                    <Text style={styles.winner}>You lose!</Text>
+                    <Text style={WinnerStyles.winner}>You lose!</Text>
                 </>
             }
         </>
     );
 };
-
-const styles = StyleSheet.create({
-    winner: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: '#000',
-        marginBottom: 340,
-    },
-});

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import Winner from './src/pages/Winner/Winner';
-import Menu from './src/pages/Menu/Menu';
-import Easy from './src/pages/Easy/Easy';
-import Medium from './src/pages/Medium/Medium';
-import Hard from './src/pages/Hard/Hard';
-import VeryHard from './src/pages/VeryHard/VeryHard';
-import Back from './src/pages/Menu/Back';
-import MenuGame from './src/pages/Menu/MenuGame';
+import AppStyles from './AppStyles';
+import Winner from './pages/Winner/Winner';
+import Menu from './pages/Menu/Menu';
+import Easy from './pages/Easy/Easy';
+import Medium from './pages/Medium/Medium';
+import Hard from './pages/Hard/Hard';
+import VeryHard from './pages/VeryHard/VeryHard';
+import Back from './pages/Menu/Back';
+import MenuGame from './pages/Menu/MenuGame';
 
 export default function App() {
     const [screen, setScreen] = useState('menu');
@@ -597,7 +598,7 @@ export default function App() {
 
     function getScreenMenu() {
         return (
-            <View style={styles.containerHome}>
+            <View style={AppStyles.containerHome}>
                 <Menu />
                 <MenuGame startGameEasy={startGameEasy} startGameMedium={startGameMedium}
                     startGameHard={startGameHard} startGameVeryHard={startGameVeryHard} />
@@ -607,19 +608,19 @@ export default function App() {
 
     function getScreenGame() {
         return (
-            <View style={styles.container}>
+            <View style={AppStyles.container}>
                 <Easy />
                 {board.map((line, numberLine) => {
                     return (
-                        <View key={numberLine} style={styles.inlineItens}>
+                        <View key={numberLine} style={AppStyles.inlineItens}>
                             {line.map((column, numberColumn) => {
                                 return (
                                     <TouchableOpacity
                                         key={numberColumn}
-                                        style={styles.boxPlayer}
+                                        style={AppStyles.boxPlayer}
                                         onPress={() => playEasy(numberLine, numberColumn)}
                                         disabled={column !== ''}>
-                                        <Text style={column === 'X' ? styles.playerX : styles.playerO}>{column}</Text>
+                                        <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
                             })
@@ -635,19 +636,19 @@ export default function App() {
 
     function getScreenGameMedium() {
         return (
-            <View style={styles.containerMedium}>
+            <View style={AppStyles.containerMedium}>
                 <Medium />
                 {board.map((line, numberLine) => {
                     return (
-                        <View key={numberLine} style={styles.inlineItens}>
+                        <View key={numberLine} style={AppStyles.inlineItens}>
                             {line.map((column, numberColumn) => {
                                 return (
                                     <TouchableOpacity
                                         key={numberColumn}
-                                        style={styles.boxPlayer}
+                                        style={AppStyles.boxPlayer}
                                         onPress={() => playMedium(numberLine, numberColumn)}
                                         disabled={column !== ''}>
-                                        <Text style={column === 'X' ? styles.playerX : styles.playerO}>{column}</Text>
+                                        <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
                             })
@@ -663,19 +664,19 @@ export default function App() {
 
     function getScreenGameHard() {
         return (
-            <View style={styles.containerHard}>
+            <View style={AppStyles.containerHard}>
                 <Hard />
                 {board.map((line, numberLine) => {
                     return (
-                        <View key={numberLine} style={styles.inlineItens}>
+                        <View key={numberLine} style={AppStyles.inlineItens}>
                             {line.map((column, numberColumn) => {
                                 return (
                                     <TouchableOpacity
                                         key={numberColumn}
-                                        style={styles.boxPlayer}
+                                        style={AppStyles.boxPlayer}
                                         onPress={() => playHard(numberLine, numberColumn)}
                                         disabled={column !== ''}>
-                                        <Text style={column === 'X' ? styles.playerX : styles.playerO}>{column}</Text>
+                                        <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
                             })
@@ -691,19 +692,19 @@ export default function App() {
 
     function getScreenGameVeryHard() {
         return (
-            <View style={styles.containerVeryHard}>
+            <View style={AppStyles.containerVeryHard}>
                 <VeryHard />
                 {board.map((line, numberLine) => {
                     return (
-                        <View key={numberLine} style={styles.inlineItens}>
+                        <View key={numberLine} style={AppStyles.inlineItens}>
                             {line.map((column, numberColumn) => {
                                 return (
                                     <TouchableOpacity
                                         key={numberColumn}
-                                        style={styles.boxPlayer}
+                                        style={AppStyles.boxPlayer}
                                         onPress={() => playVeryHard(numberLine, numberColumn)}
                                         disabled={column !== ''}>
-                                        <Text style={column === 'X' ? styles.playerX : styles.playerO}>{column}</Text>
+                                        <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
                             })
@@ -719,7 +720,7 @@ export default function App() {
 
     function getScreenWinner() {
         return (
-            <View style={styles.containerWin}>
+            <View style={AppStyles.containerWin}>
                 <Winner winner={winner} />
                 <Back setScreen={setScreen} />
             </View>
@@ -727,61 +728,3 @@ export default function App() {
     };
 };
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgb(0, 64, 128)',
-    },
-    containerWin: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgb(254, 213, 16)',
-    },
-    containerMedium: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgb(29, 188, 146)',
-    },
-    containerHard: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgb(121, 0, 255)',
-    },
-    containerVeryHard: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgb(250, 91, 69)',
-    },
-    containerHome: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'rgb(19, 20, 31)',
-    },
-    playerX: {
-        fontSize: 60,
-        color: '#fff',
-    },
-    playerO: {
-        fontSize: 60,
-        color: '#fff'
-    },
-    boxPlayer: {
-        width: 110,
-        height: 110,
-        backgroundColor: 'rgba(220, 220, 220,0.6)',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 0.5,
-        borderRadius: 1,
-    },
-    inlineItens: {
-        flexDirection: 'row',
-    },
-});

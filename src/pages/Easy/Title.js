@@ -1,17 +1,9 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
+import EasyStyles from './EasyStyles';
 
 export default function TitleEasy() {
     return (
-        <Text style={styles.title}>Easy</Text>      
+        <Text style={EasyStyles.title}>Easy</Text>      
     );
 };
-
-const styles = StyleSheet.create({
-    title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: '#fff',
-        marginBottom: 70,
-    },
-});

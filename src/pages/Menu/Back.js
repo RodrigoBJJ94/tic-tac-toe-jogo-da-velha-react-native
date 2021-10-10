@@ -1,22 +1,13 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text } from 'react-native';
+import MenuGameStyles from './MenuGameStyles';
 
 export default function Back(props) {
     return (
         <TouchableOpacity
             onPress={() => props.setScreen('menu')}
-            style={styles.buttonBackMenu}>
-            <Text style={styles.textBackMenu}>Back to menu</Text>
+            style={MenuGameStyles.buttonBackMenu}>
+            <Text style={MenuGameStyles.textBackMenu}>Back to menu</Text>
         </TouchableOpacity>
     );
 };
-
-const styles = StyleSheet.create({
-    buttonBackMenu: {
-        marginTop: 30,
-    },
-    textBackMenu: {
-        color: '#fff',
-        fontSize: 20,
-    },
-});
