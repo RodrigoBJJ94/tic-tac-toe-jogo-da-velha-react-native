@@ -623,12 +623,10 @@ export default function App() {
                                         <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
-                            })
-                            }
+                            })}
                         </View>
                     )
-                })
-                }
+                })}
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -651,12 +649,10 @@ export default function App() {
                                         <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
-                            })
-                            }
+                            })}
                         </View>
                     )
-                })
-                }
+                })}
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -679,12 +675,10 @@ export default function App() {
                                         <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
-                            })
-                            }
+                            })}
                         </View>
                     )
-                })
-                }
+                })}
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -707,12 +701,10 @@ export default function App() {
                                         <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
-                            })
-                            }
+                            })}
                         </View>
                     )
-                })
-                }
+                })}
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -727,4 +719,3 @@ export default function App() {
         );
     };
 };
-
