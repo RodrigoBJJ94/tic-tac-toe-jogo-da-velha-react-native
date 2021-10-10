@@ -1,29 +1,29 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import MenuGameStyles from './MenuGameStyles';
+import Styles from './Styles';
 
 export default function MenuGame(props) {
     return (
-        <View style={MenuGameStyles.inlineItensHome}>
+        <View style={Styles.inlineItensHome}>
             <TouchableOpacity
                 onPress={() => props.startGameEasy('X')}
-                style={MenuGameStyles.boxPlayerHomeEasy}>
-                <Text style={MenuGameStyles.playerXEasy}>Easy</Text>
+                style={Styles.boxPlayerHomeEasy}>
+                <Text style={Styles.playerXEasy}>Easy</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => props.startGameMedium('X')}
-                style={MenuGameStyles.boxPlayerHomeMedium}>
-                <Text style={MenuGameStyles.playerXEasy}>Medium</Text>
+                style={Styles.boxPlayerHomeMedium}>
+                <Text style={Styles.playerXEasy}>Medium</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => props.startGameHard('X')}
-                style={MenuGameStyles.boxPlayerHomeHard}>
-                <Text style={MenuGameStyles.playerXEasy}>Hard</Text>
+                style={Styles.boxPlayerHomeHard}>
+                <Text style={Styles.playerXEasy}>Hard</Text>
             </TouchableOpacity>
             <TouchableOpacity
                 onPress={() => props.startGameVeryHard('X')}
-                style={MenuGameStyles.boxPlayerHomeVeryHard}>
-                <Text style={MenuGameStyles.playerXEasy}>Very Hard</Text>
+                style={Styles.boxPlayerHomeVeryHard}>
+                <Text style={Styles.playerXEasy}>Very Hard</Text>
             </TouchableOpacity>
         </View>
     );

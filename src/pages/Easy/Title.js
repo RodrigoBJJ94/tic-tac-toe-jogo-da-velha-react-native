@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text } from 'react-native';
-import EasyStyles from './EasyStyles';
+import Styles from './Styles';
 
 export default function TitleEasy() {
     return (
-        <Text style={EasyStyles.title}>Easy</Text>      
+        <Text style={Styles.title}>Easy</Text>      
     );
 };

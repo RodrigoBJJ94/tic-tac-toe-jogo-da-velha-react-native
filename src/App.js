@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import AppStyles from './AppStyles';
+import { View, Text, TouchableOpacity } from 'react-native';
+import Styles from './Styles';
 import Winner from './pages/Winner/Winner';
 import Menu from './pages/Menu/Menu';
 import Easy from './pages/Easy/Easy';
@@ -598,7 +598,7 @@ export default function App() {
 
     function getScreenMenu() {
         return (
-            <View style={AppStyles.containerHome}>
+            <View style={Styles.containerHome}>
                 <Menu />
                 <MenuGame startGameEasy={startGameEasy} startGameMedium={startGameMedium}
                     startGameHard={startGameHard} startGameVeryHard={startGameVeryHard} />
@@ -608,19 +608,19 @@ export default function App() {
 
     function getScreenGame() {
         return (
-            <View style={AppStyles.container}>
+            <View style={Styles.container}>
                 <Easy />
                 {board.map((line, numberLine) => {
                     return (
-                        <View key={numberLine} style={AppStyles.inlineItens}>
+                        <View key={numberLine} style={Styles.inlineItens}>
                             {line.map((column, numberColumn) => {
                                 return (
                                     <TouchableOpacity
                                         key={numberColumn}
-                                        style={AppStyles.boxPlayer}
+                                        style={Styles.boxPlayer}
                                         onPress={() => playEasy(numberLine, numberColumn)}
                                         disabled={column !== ''}>
-                                        <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
+                                        <Text style={column === 'X' ? Styles.playerX : Styles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
                             })}
@@ -634,19 +634,19 @@ export default function App() {
 
     function getScreenGameMedium() {
         return (
-            <View style={AppStyles.containerMedium}>
+            <View style={Styles.containerMedium}>
                 <Medium />
                 {board.map((line, numberLine) => {
                     return (
-                        <View key={numberLine} style={AppStyles.inlineItens}>
+                        <View key={numberLine} style={Styles.inlineItens}>
                             {line.map((column, numberColumn) => {
                                 return (
                                     <TouchableOpacity
                                         key={numberColumn}
-                                        style={AppStyles.boxPlayer}
+                                        style={Styles.boxPlayer}
                                         onPress={() => playMedium(numberLine, numberColumn)}
                                         disabled={column !== ''}>
-                                        <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
+                                        <Text style={column === 'X' ? Styles.playerX : Styles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
                             })}
@@ -660,19 +660,19 @@ export default function App() {
 
     function getScreenGameHard() {
         return (
-            <View style={AppStyles.containerHard}>
+            <View style={Styles.containerHard}>
                 <Hard />
                 {board.map((line, numberLine) => {
                     return (
-                        <View key={numberLine} style={AppStyles.inlineItens}>
+                        <View key={numberLine} style={Styles.inlineItens}>
                             {line.map((column, numberColumn) => {
                                 return (
                                     <TouchableOpacity
                                         key={numberColumn}
-                                        style={AppStyles.boxPlayer}
+                                        style={Styles.boxPlayer}
                                         onPress={() => playHard(numberLine, numberColumn)}
                                         disabled={column !== ''}>
-                                        <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
+                                        <Text style={column === 'X' ? Styles.playerX : Styles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
                             })}
@@ -686,19 +686,19 @@ export default function App() {
 
     function getScreenGameVeryHard() {
         return (
-            <View style={AppStyles.containerVeryHard}>
+            <View style={Styles.containerVeryHard}>
                 <VeryHard />
                 {board.map((line, numberLine) => {
                     return (
-                        <View key={numberLine} style={AppStyles.inlineItens}>
+                        <View key={numberLine} style={Styles.inlineItens}>
                             {line.map((column, numberColumn) => {
                                 return (
                                     <TouchableOpacity
                                         key={numberColumn}
-                                        style={AppStyles.boxPlayer}
+                                        style={Styles.boxPlayer}
                                         onPress={() => playVeryHard(numberLine, numberColumn)}
                                         disabled={column !== ''}>
-                                        <Text style={column === 'X' ? AppStyles.playerX : AppStyles.playerO}>{column}</Text>
+                                        <Text style={column === 'X' ? Styles.playerX : Styles.playerO}>{column}</Text>
                                     </TouchableOpacity>
                                 )
                             })}
@@ -712,7 +712,7 @@ export default function App() {
 
     function getScreenWinner() {
         return (
-            <View style={AppStyles.containerWin}>
+            <View style={Styles.containerWin}>
                 <Winner winner={winner} />
                 <Back setScreen={setScreen} />
             </View>

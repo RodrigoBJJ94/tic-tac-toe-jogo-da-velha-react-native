@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text } from 'react-native';
-import HardStyles from './HardStyles';
+import Styles from './Styles';
 
 export default function TitleHard() {
     return (
-        <Text style={HardStyles.title}>Hard</Text>      
+        <Text style={Styles.title}>Hard</Text>      
     );
 };

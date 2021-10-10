@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text } from 'react-native';
-import MediumStyles from './MediumStyles';
+import Styles from './Styles';
 
 export default function TitleMedium() {
     return (
-        <Text style={MediumStyles.title}>Medium</Text>      
+        <Text style={Styles.title}>Medium</Text>      
     );
 };

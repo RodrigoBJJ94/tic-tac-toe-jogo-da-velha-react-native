@@ -5,7 +5,7 @@ import AnimatedLottieView from 'lottie-react-native';
 import youWin from '../../assets/animations/YouWin.json';
 import youLose from '../../assets/animations/YouLose.json';
 import draw from '../../assets/animations/Draw.json';
-import WinnerStyles from './WinnerStyles';
+import Styles from './Styles';
 
 export default function Winner(props) {
     return (
@@ -16,7 +16,7 @@ export default function Winner(props) {
                 <>
                     <AnimatedLottieView
                         source={draw} autoPlay loop />
-                    <Text style={WinnerStyles.winner}>Draw</Text>
+                    <Text style={Styles.winner}>Draw</Text>
                 </>
             }
             {
@@ -24,7 +24,7 @@ export default function Winner(props) {
                 <>
                     <AnimatedLottieView
                         source={youWin} autoPlay loop />
-                    <Text style={WinnerStyles.winner}>You win!</Text>
+                    <Text style={Styles.winner}>You win!</Text>
                 </>
             }
             {
@@ -32,7 +32,7 @@ export default function Winner(props) {
                 <>
                     <AnimatedLottieView
                         source={youLose} autoPlay loop />
-                    <Text style={WinnerStyles.winner}>You lose!</Text>
+                    <Text style={Styles.winner}>You lose!</Text>
                 </>
             }
         </>

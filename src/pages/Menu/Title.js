@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text } from 'react-native';
-import MenuGameStyles from './MenuGameStyles';
+import Styles from './Styles';
 
 export default function TitleMenu() {
     return (
-        <Text style={MenuGameStyles.titleHome}>Tic Tac Toe</Text>      
+        <Text style={Styles.titleHome}>Tic Tac Toe</Text>      
     );
 };
