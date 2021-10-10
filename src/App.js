@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import AppStyles from './AppStyles';
 import Winner from './pages/Winner/Winner';
 import Menu from './pages/Menu/Menu';
@@ -9,6 +9,8 @@ import Hard from './pages/Hard/Hard';
 import VeryHard from './pages/VeryHard/VeryHard';
 import Back from './pages/Menu/Back';
 import MenuGame from './pages/Menu/MenuGame';
+
+
 
 export default function App() {
     const [screen, setScreen] = useState('menu');
