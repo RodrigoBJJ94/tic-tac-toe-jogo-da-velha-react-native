@@ -12,9 +12,7 @@
   "dependencies": {
     "lottie-react-native": "^4.0.3",
     "react": "17.0.2",
-    "react-native": "0.65.1",
-    "react-native-sound": "^0.11.1",
-    "react-native-use-sound": "^1.2.1"
+    "react-native": "0.65.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
