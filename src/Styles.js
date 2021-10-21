@@ -36,25 +36,5 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: 'rgb(19, 20, 31)',
-    },
-    playerX: {
-        fontSize: 60,
-        color: '#fff',
-    },
-    playerO: {
-        fontSize: 60,
-        color: '#fff'
-    },
-    boxPlayer: {
-        width: 110,
-        height: 110,
-        backgroundColor: 'rgba(220, 220, 220,0.6)',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: 0.5,
-        borderRadius: 1,
-    },
-    inlineItens: {
-        flexDirection: 'row',
     }
 });

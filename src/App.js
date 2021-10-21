@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import Styles from './Styles';
 import Winner from './pages/Winner/Winner';
 import Menu from './pages/Menu/Menu';
@@ -43,357 +43,6 @@ export default function App() {
         setRemainingMoves(5);
         setBoard([['', '', ''], ['', '', ''], ['', '', '']]);
         setScreen('veryHard');
-    };
-
-    function playEasy(line, column) {
-        board[line][column] = currentPlayer;
-        setBoard([...board]);
-
-        if (startGameEasy) {
-            if (currentPlayer === 'X' && remainingMoves > 1) {
-                do {
-                    line = Math.round(Math.random() * 2);
-                    column = Math.round(Math.random() * 2);
-                } while (board[line][column] !== '');
-                board[line][column] = 'O';
-                setCurrentPlayer('X');
-
-                if (currentPlayer === 'O') {
-                    setCurrentPlayer(currentPlayer === 'X');
-                };
-            };
-            verifyWinner(board, line, column);
-        };
-    };
-
-    function playMedium(line, column) {
-        board[line][column] = currentPlayer;
-        setBoard([...board]);
-
-        if (startGameMedium) {
-            if (currentPlayer === 'X' && remainingMoves > 1) {
-                if ((board[0][0] === 'X') && (board[0][1] === 'X') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[0][2] === 'X') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'X') && (board[0][1] === 'X') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[1][0] === 'X') && (board[1][1] === 'X') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][0] === 'X') && (board[1][2] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][2] === 'X') && (board[1][1] === 'X') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[2][0] === 'X') && (board[2][1] === 'X') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[2][0] === 'X') && (board[2][2] === 'X') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[2][2] === 'X') && (board[2][1] === 'X') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'X') && (board[1][0] === 'X') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'X') && (board[2][0] === 'X') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[1][0] === 'X') && (board[2][0] === 'X') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][1] === 'X') && (board[1][1] === 'X') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[0][1] === 'X') && (board[2][1] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][1] === 'X') && (board[2][1] === 'X') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'X') && (board[1][2] === 'X') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][2] === 'X') && (board[2][2] === 'X') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][2] === 'X') && (board[2][2] === 'X') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[1][1] === 'X') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[2][2] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][2] === 'X') && (board[1][1] === 'X') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][2] === 'X') && (board[1][1] === 'X') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][2] === 'X') && (board[2][0] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][0] === 'X') && (board[1][1] === 'X') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else {
-                    do {
-                        line = Math.round(Math.random() * 2);
-                        column = Math.round(Math.random() * 2);
-                    } while (board[line][column] !== '');
-                    board[line][column] = 'O';
-                };
-
-                setCurrentPlayer('X');
-
-                if (currentPlayer === 'O') {
-                    setCurrentPlayer(currentPlayer === 'X');
-                };
-            };
-            verifyWinnerMedium(board, line, column);
-        };
-    };
-
-    function playHard(line, column) {
-        board[line][column] = currentPlayer;
-        setBoard([...board]);
-
-        if (startGameHard) {
-            if (currentPlayer === 'X' && remainingMoves > 1) {
-                if ((board[0][0] === 'O') && (board[0][1] === 'O') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'O') && (board[0][2] === 'O') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'O') && (board[0][1] === 'O') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[1][0] === 'O') && (board[1][1] === 'O') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][0] === 'O') && (board[1][2] === 'O') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][2] === 'O') && (board[1][1] === 'O') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[2][0] === 'O') && (board[2][1] === 'O') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[2][0] === 'O') && (board[2][2] === 'O') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[2][2] === 'O') && (board[2][1] === 'O') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'O') && (board[1][0] === 'O') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'O') && (board[2][0] === 'O') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[1][0] === 'O') && (board[2][0] === 'O') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][1] === 'O') && (board[1][1] === 'O') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[0][1] === 'O') && (board[2][1] === 'O') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][1] === 'O') && (board[2][1] === 'O') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'O') && (board[1][2] === 'O') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][2] === 'O') && (board[2][2] === 'O') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][2] === 'O') && (board[2][2] === 'O') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'O') && (board[1][1] === 'O') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][0] === 'O') && (board[2][2] === 'O') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][2] === 'O') && (board[1][1] === 'O') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][2] === 'O') && (board[1][1] === 'O') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][2] === 'O') && (board[2][0] === 'O') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][0] === 'O') && (board[1][1] === 'O') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[0][1] === 'X') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[0][2] === 'X') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'X') && (board[0][1] === 'X') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[1][0] === 'X') && (board[1][1] === 'X') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][0] === 'X') && (board[1][2] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][2] === 'X') && (board[1][1] === 'X') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[2][0] === 'X') && (board[2][1] === 'X') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[2][0] === 'X') && (board[2][2] === 'X') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[2][2] === 'X') && (board[2][1] === 'X') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'X') && (board[1][0] === 'X') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'X') && (board[2][0] === 'X') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[1][0] === 'X') && (board[2][0] === 'X') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][1] === 'X') && (board[1][1] === 'X') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[0][1] === 'X') && (board[2][1] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][1] === 'X') && (board[2][1] === 'X') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'X') && (board[1][2] === 'X') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][2] === 'X') && (board[2][2] === 'X') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][2] === 'X') && (board[2][2] === 'X') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[1][1] === 'X') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[2][2] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][2] === 'X') && (board[1][1] === 'X') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][2] === 'X') && (board[1][1] === 'X') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][2] === 'X') && (board[2][0] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][0] === 'X') && (board[1][1] === 'X') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else {
-                    do {
-                        line = Math.round(Math.random() * 2);
-                        column = Math.round(Math.random() * 2);
-                    } while (board[line][column] !== '');
-                    board[line][column] = 'O';
-                };
-
-                setCurrentPlayer('X');
-
-                if (currentPlayer === 'O') {
-                    setCurrentPlayer(currentPlayer === 'X');
-                };
-            };
-            verifyWinnerHard(board, line, column);
-        };
-    };
-
-    function playVeryHard(line, column) {
-        board[line][column] = currentPlayer;
-        setBoard([...board]);
-
-        if (startGameVeryHard) {
-            if (currentPlayer === 'X' && remainingMoves > 1) {
-                if ((board[0][0] === 'O') && (board[0][1] === 'O') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'O') && (board[0][2] === 'O') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'O') && (board[0][1] === 'O') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[1][0] === 'O') && (board[1][1] === 'O') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][0] === 'O') && (board[1][2] === 'O') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][2] === 'O') && (board[1][1] === 'O') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[2][0] === 'O') && (board[2][1] === 'O') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[2][0] === 'O') && (board[2][2] === 'O') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[2][2] === 'O') && (board[2][1] === 'O') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'O') && (board[1][0] === 'O') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'O') && (board[2][0] === 'O') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[1][0] === 'O') && (board[2][0] === 'O') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][1] === 'O') && (board[1][1] === 'O') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[0][1] === 'O') && (board[2][1] === 'O') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][1] === 'O') && (board[2][1] === 'O') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'O') && (board[1][2] === 'O') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][2] === 'O') && (board[2][2] === 'O') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][2] === 'O') && (board[2][2] === 'O') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'O') && (board[1][1] === 'O') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][0] === 'O') && (board[2][2] === 'O') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][2] === 'O') && (board[1][1] === 'O') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][2] === 'O') && (board[1][1] === 'O') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][2] === 'O') && (board[2][0] === 'O') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][0] === 'O') && (board[1][1] === 'O') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[0][1] === 'X') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[0][2] === 'X') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'X') && (board[0][1] === 'X') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[1][0] === 'X') && (board[1][1] === 'X') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][0] === 'X') && (board[1][2] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][2] === 'X') && (board[1][1] === 'X') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[2][0] === 'X') && (board[2][1] === 'X') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[2][0] === 'X') && (board[2][2] === 'X') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[2][2] === 'X') && (board[2][1] === 'X') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'X') && (board[1][0] === 'X') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][0] === 'X') && (board[2][0] === 'X') && (board[1][0] === '')) {
-                    board[1][0] = 'O';
-                } else if ((board[1][0] === 'X') && (board[2][0] === 'X') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][1] === 'X') && (board[1][1] === 'X') && (board[2][1] === '')) {
-                    board[2][1] = 'O';
-                } else if ((board[0][1] === 'X') && (board[2][1] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][1] === 'X') && (board[2][1] === 'X') && (board[0][1] === '')) {
-                    board[0][1] = 'O';
-                } else if ((board[0][2] === 'X') && (board[1][2] === 'X') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][2] === 'X') && (board[2][2] === 'X') && (board[1][2] === '')) {
-                    board[1][2] = 'O';
-                } else if ((board[1][2] === 'X') && (board[2][2] === 'X') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[1][1] === 'X') && (board[2][2] === '')) {
-                    board[2][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[2][2] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][2] === 'X') && (board[1][1] === 'X') && (board[0][0] === '')) {
-                    board[0][0] = 'O';
-                } else if ((board[0][2] === 'X') && (board[1][1] === 'X') && (board[2][0] === '')) {
-                    board[2][0] = 'O';
-                } else if ((board[0][2] === 'X') && (board[2][0] === 'X') && (board[1][1] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][0] === 'X') && (board[1][1] === 'X') && (board[0][2] === '')) {
-                    board[0][2] = 'O';
-                } else if ((board[0][0] === 'X') && (board[0][1] === '') && (board[0][2] === '') && (board[1][0] === '') && (board[1][1] === '') && (board[1][2] === '') && (board[2][0] === '') && (board[2][1] === '') && (board[2][2] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[0][1] === 'X') && (board[0][0] === '') && (board[0][2] === '') && (board[1][0] === '') && (board[1][1] === '') && (board[1][2] === '') && (board[2][0] === '') && (board[2][1] === '') && (board[2][2] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[0][2] === 'X') && (board[0][1] === '') && (board[0][0] === '') && (board[1][0] === '') && (board[1][1] === '') && (board[1][2] === '') && (board[2][0] === '') && (board[2][1] === '') && (board[2][2] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][0] === 'X') && (board[0][1] === '') && (board[0][2] === '') && (board[0][0] === '') && (board[1][1] === '') && (board[1][2] === '') && (board[2][0] === '') && (board[2][1] === '') && (board[2][2] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][2] === 'X') && (board[0][1] === '') && (board[0][2] === '') && (board[1][0] === '') && (board[1][1] === '') && (board[0][0] === '') && (board[2][0] === '') && (board[2][1] === '') && (board[2][2] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][0] === 'X') && (board[0][1] === '') && (board[0][2] === '') && (board[1][0] === '') && (board[1][1] === '') && (board[1][2] === '') && (board[0][0] === '') && (board[2][1] === '') && (board[2][2] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][1] === 'X') && (board[0][1] === '') && (board[0][2] === '') && (board[1][0] === '') && (board[1][1] === '') && (board[1][2] === '') && (board[2][0] === '') && (board[0][0] === '') && (board[2][2] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[2][2] === 'X') && (board[0][1] === '') && (board[0][2] === '') && (board[1][0] === '') && (board[1][1] === '') && (board[1][2] === '') && (board[2][0] === '') && (board[2][1] === '') && (board[0][0] === '')) {
-                    board[1][1] = 'O';
-                } else if ((board[1][1] === 'X') && (board[0][1] === '') && (board[0][2] === '') && (board[1][0] === '') && (board[0][0] === '') && (board[1][2] === '') && (board[2][0] === '') && (board[2][1] === '') && (board[0][0] === '')) {
-                    board[0][2] = 'O';
-                } else {
-                    do {
-                        line = Math.round(Math.random() * 2);
-                        column = Math.round(Math.random() * 2);
-                    } while (board[line][column] !== '');
-                    board[line][column] = 'O';
-                };
-
-                setCurrentPlayer('X');
-
-                if (currentPlayer === 'O') {
-                    setCurrentPlayer(currentPlayer === 'X');
-                };
-            };
-            verifyWinnerVeryHard(board, line, column);
-        };
     };
 
     function verifyWinner(board) {
@@ -556,7 +205,6 @@ export default function App() {
         setRemainingMoves((remainingMoves - 1));
     };
 
-
     function endGame(player) {
         setWinner(player);
         startGameEasy('X');
@@ -600,8 +248,10 @@ export default function App() {
         return (
             <View style={Styles.containerHome}>
                 <Menu />
-                <MenuGame startGameEasy={startGameEasy} startGameMedium={startGameMedium}
-                    startGameHard={startGameHard} startGameVeryHard={startGameVeryHard} />
+                <MenuGame
+                    startGameEasy={startGameEasy} startGameMedium={startGameMedium}
+                    startGameHard={startGameHard} startGameVeryHard={startGameVeryHard}
+                />
             </View>
         );
     };
@@ -609,24 +259,10 @@ export default function App() {
     function getScreenGame() {
         return (
             <View style={Styles.container}>
-                <Easy />
-                {board.map((line, numberLine) => {
-                    return (
-                        <View key={numberLine} style={Styles.inlineItens}>
-                            {line.map((column, numberColumn) => {
-                                return (
-                                    <TouchableOpacity
-                                        key={numberColumn}
-                                        style={Styles.boxPlayer}
-                                        onPress={() => playEasy(numberLine, numberColumn)}
-                                        disabled={column !== ''}>
-                                        <Text style={column === 'X' ? Styles.playerX : Styles.playerO}>{column}</Text>
-                                    </TouchableOpacity>
-                                )
-                            })}
-                        </View>
-                    )
-                })}
+                <Easy
+                    board={board} setBoard={setBoard} startGameEasy={startGameEasy} currentPlayer={currentPlayer}
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinner={verifyWinner}
+                />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -635,24 +271,10 @@ export default function App() {
     function getScreenGameMedium() {
         return (
             <View style={Styles.containerMedium}>
-                <Medium />
-                {board.map((line, numberLine) => {
-                    return (
-                        <View key={numberLine} style={Styles.inlineItens}>
-                            {line.map((column, numberColumn) => {
-                                return (
-                                    <TouchableOpacity
-                                        key={numberColumn}
-                                        style={Styles.boxPlayer}
-                                        onPress={() => playMedium(numberLine, numberColumn)}
-                                        disabled={column !== ''}>
-                                        <Text style={column === 'X' ? Styles.playerX : Styles.playerO}>{column}</Text>
-                                    </TouchableOpacity>
-                                )
-                            })}
-                        </View>
-                    )
-                })}
+                <Medium
+                    board={board} setBoard={setBoard} startGameMedium={startGameMedium} currentPlayer={currentPlayer}
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerMedium={verifyWinnerMedium}
+                />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -661,24 +283,10 @@ export default function App() {
     function getScreenGameHard() {
         return (
             <View style={Styles.containerHard}>
-                <Hard />
-                {board.map((line, numberLine) => {
-                    return (
-                        <View key={numberLine} style={Styles.inlineItens}>
-                            {line.map((column, numberColumn) => {
-                                return (
-                                    <TouchableOpacity
-                                        key={numberColumn}
-                                        style={Styles.boxPlayer}
-                                        onPress={() => playHard(numberLine, numberColumn)}
-                                        disabled={column !== ''}>
-                                        <Text style={column === 'X' ? Styles.playerX : Styles.playerO}>{column}</Text>
-                                    </TouchableOpacity>
-                                )
-                            })}
-                        </View>
-                    )
-                })}
+                <Hard
+                    board={board} setBoard={setBoard} startGameHard={startGameHard} currentPlayer={currentPlayer}
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerHard={verifyWinnerHard}
+                />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -687,24 +295,10 @@ export default function App() {
     function getScreenGameVeryHard() {
         return (
             <View style={Styles.containerVeryHard}>
-                <VeryHard />
-                {board.map((line, numberLine) => {
-                    return (
-                        <View key={numberLine} style={Styles.inlineItens}>
-                            {line.map((column, numberColumn) => {
-                                return (
-                                    <TouchableOpacity
-                                        key={numberColumn}
-                                        style={Styles.boxPlayer}
-                                        onPress={() => playVeryHard(numberLine, numberColumn)}
-                                        disabled={column !== ''}>
-                                        <Text style={column === 'X' ? Styles.playerX : Styles.playerO}>{column}</Text>
-                                    </TouchableOpacity>
-                                )
-                            })}
-                        </View>
-                    )
-                })}
+                <VeryHard
+                    board={board} setBoard={setBoard} startGameVeryHard={startGameVeryHard} currentPlayer={currentPlayer}
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerVeryHard={verifyWinnerVeryHard}
+                />
                 <Back setScreen={setScreen} />
             </View>
         );
