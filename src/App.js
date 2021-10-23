@@ -45,162 +45,6 @@ export default function App() {
         setScreen('veryHard');
     };
 
-    function verifyWinner(board) {
-        if (board[0][0] !== '' && board[0][0] === board[0][1] && board[0][1] === board[0][2]) {
-            return endGame(board[0][0]);
-        };
-
-        if (board[1][0] !== '' && board[1][0] === board[1][1] && board[1][1] === board[1][2]) {
-            return endGame(board[1][0]);
-        };
-
-        if (board[2][0] !== '' && board[2][0] === board[2][1] && board[2][1] === board[2][2]) {
-            return endGame(board[2][0]);
-        };
-
-        if (board[0][0] !== '' && board[0][0] === board[1][0] && board[1][0] === board[2][0]) {
-            return endGame(board[0][0]);
-        };
-
-        if (board[0][1] !== '' && board[0][1] === board[1][1] && board[1][1] === board[2][1]) {
-            return endGame(board[0][1]);
-        };
-
-        if (board[0][2] !== '' && board[0][2] === board[1][2] && board[1][2] === board[2][2]) {
-            return endGame(board[0][2]);
-        };
-
-        if (board[0][0] !== '' && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
-            return endGame(board[0][0]);
-        };
-
-        if (board[2][0] !== '' && board[2][0] === board[1][1] && board[1][1] === board[0][2]) {
-            return endGame(board[2][0]);
-        };
-
-        if ((remainingMoves - 1) === 0) {
-            return endGame('');
-        };
-        setRemainingMoves((remainingMoves - 1));
-    };
-
-    function verifyWinnerMedium(board) {
-        if (board[0][0] !== '' && board[0][0] === board[0][1] && board[0][1] === board[0][2]) {
-            return endGameMedium(board[0][0]);
-        };
-
-        if (board[1][0] !== '' && board[1][0] === board[1][1] && board[1][1] === board[1][2]) {
-            return endGameMedium(board[1][0]);
-        };
-
-        if (board[2][0] !== '' && board[2][0] === board[2][1] && board[2][1] === board[2][2]) {
-            return endGameMedium(board[2][0]);
-        };
-
-        if (board[0][0] !== '' && board[0][0] === board[1][0] && board[1][0] === board[2][0]) {
-            return endGameMedium(board[0][0]);
-        };
-
-        if (board[0][1] !== '' && board[0][1] === board[1][1] && board[1][1] === board[2][1]) {
-            return endGameMedium(board[0][1]);
-        };
-
-        if (board[0][2] !== '' && board[0][2] === board[1][2] && board[1][2] === board[2][2]) {
-            return endGameMedium(board[0][2]);
-        };
-
-        if (board[0][0] !== '' && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
-            return endGameMedium(board[0][0]);
-        };
-
-        if (board[2][0] !== '' && board[2][0] === board[1][1] && board[1][1] === board[0][2]) {
-            return endGameMedium(board[2][0]);
-        };
-
-        if ((remainingMoves - 1) === 0) {
-            return endGameMedium('');
-        };
-        setRemainingMoves((remainingMoves - 1));
-    };
-
-    function verifyWinnerHard(board) {
-        if (board[0][0] !== '' && board[0][0] === board[0][1] && board[0][1] === board[0][2]) {
-            return endGameHard(board[0][0]);
-        };
-
-        if (board[1][0] !== '' && board[1][0] === board[1][1] && board[1][1] === board[1][2]) {
-            return endGameHard(board[1][0]);
-        };
-
-        if (board[2][0] !== '' && board[2][0] === board[2][1] && board[2][1] === board[2][2]) {
-            return endGameHard(board[2][0]);
-        };
-
-        if (board[0][0] !== '' && board[0][0] === board[1][0] && board[1][0] === board[2][0]) {
-            return endGameHard(board[0][0]);
-        };
-
-        if (board[0][1] !== '' && board[0][1] === board[1][1] && board[1][1] === board[2][1]) {
-            return endGameHard(board[0][1]);
-        };
-
-        if (board[0][2] !== '' && board[0][2] === board[1][2] && board[1][2] === board[2][2]) {
-            return endGameHard(board[0][2]);
-        };
-
-        if (board[0][0] !== '' && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
-            return endGameHard(board[0][0]);
-        };
-
-        if (board[2][0] !== '' && board[2][0] === board[1][1] && board[1][1] === board[0][2]) {
-            return endGameHard(board[2][0]);
-        };
-
-        if ((remainingMoves - 1) === 0) {
-            return endGameHard('');
-        };
-        setRemainingMoves((remainingMoves - 1));
-    };
-
-    function verifyWinnerVeryHard(board) {
-        if (board[0][0] !== '' && board[0][0] === board[0][1] && board[0][1] === board[0][2]) {
-            return endGameVeryHard(board[0][0]);
-        };
-
-        if (board[1][0] !== '' && board[1][0] === board[1][1] && board[1][1] === board[1][2]) {
-            return endGameVeryHard(board[1][0]);
-        };
-
-        if (board[2][0] !== '' && board[2][0] === board[2][1] && board[2][1] === board[2][2]) {
-            return endGameVeryHard(board[2][0]);
-        };
-
-        if (board[0][0] !== '' && board[0][0] === board[1][0] && board[1][0] === board[2][0]) {
-            return endGameVeryHard(board[0][0]);
-        };
-
-        if (board[0][1] !== '' && board[0][1] === board[1][1] && board[1][1] === board[2][1]) {
-            return endGameVeryHard(board[0][1]);
-        };
-
-        if (board[0][2] !== '' && board[0][2] === board[1][2] && board[1][2] === board[2][2]) {
-            return endGameVeryHard(board[0][2]);
-        };
-
-        if (board[0][0] !== '' && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
-            return endGameVeryHard(board[0][0]);
-        };
-
-        if (board[2][0] !== '' && board[2][0] === board[1][1] && board[1][1] === board[0][2]) {
-            return endGameVeryHard(board[2][0]);
-        };
-
-        if ((remainingMoves - 1) === 0) {
-            return endGameVeryHard('');
-        };
-        setRemainingMoves((remainingMoves - 1));
-    };
-
     function endGame(player) {
         setWinner(player);
         startGameEasy('X');
@@ -256,7 +100,7 @@ export default function App() {
             <View style={Styles.container}>
                 <Easy
                     board={board} setBoard={setBoard} startGameEasy={startGameEasy} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinner={verifyWinner} />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves} endGame={endGame} />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -267,7 +111,7 @@ export default function App() {
             <View style={Styles.containerMedium}>
                 <Medium
                     board={board} setBoard={setBoard} startGameMedium={startGameMedium} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerMedium={verifyWinnerMedium} />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves} endGameMedium={endGameMedium} />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -278,7 +122,7 @@ export default function App() {
             <View style={Styles.containerHard}>
                 <Hard
                     board={board} setBoard={setBoard} startGameHard={startGameHard} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerHard={verifyWinnerHard} />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves} endGameHard={endGameHard} />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -289,7 +133,7 @@ export default function App() {
             <View style={Styles.containerVeryHard}>
                 <VeryHard
                     board={board} setBoard={setBoard} startGameVeryHard={startGameVeryHard} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerVeryHard={verifyWinnerVeryHard} />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves} endGameVeryHard={endGameVeryHard} />
                 <Back setScreen={setScreen} />
             </View>
         );

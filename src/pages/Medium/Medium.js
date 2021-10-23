@@ -5,7 +5,7 @@ import StatusBarMedium from './StatusBar';
 import AnimationMedium from './Animation';
 import TitleMedium from './Title';
 
-export default function Medium({ board, setBoard, startGameMedium, currentPlayer, remainingMoves, setCurrentPlayer, verifyWinnerMedium }) {
+export default function Medium({ board, setBoard, startGameMedium, currentPlayer, remainingMoves, setRemainingMoves, setCurrentPlayer, endGameMedium }) {
 
     function playMedium(line, column) {
         board[line][column] = currentPlayer;
@@ -68,7 +68,6 @@ export default function Medium({ board, setBoard, startGameMedium, currentPlayer
                     } while (board[line][column] !== '');
                     board[line][column] = 'O';
                 };
-
                 setCurrentPlayer('X');
 
                 if (currentPlayer === 'O') {
@@ -77,6 +76,45 @@ export default function Medium({ board, setBoard, startGameMedium, currentPlayer
             };
             verifyWinnerMedium(board, line, column);
         };
+    };
+
+    function verifyWinnerMedium(board) {
+        if (board[0][0] !== '' && board[0][0] === board[0][1] && board[0][1] === board[0][2]) {
+            return endGameMedium(board[0][0]);
+        };
+
+        if (board[1][0] !== '' && board[1][0] === board[1][1] && board[1][1] === board[1][2]) {
+            return endGameMedium(board[1][0]);
+        };
+
+        if (board[2][0] !== '' && board[2][0] === board[2][1] && board[2][1] === board[2][2]) {
+            return endGameMedium(board[2][0]);
+        };
+
+        if (board[0][0] !== '' && board[0][0] === board[1][0] && board[1][0] === board[2][0]) {
+            return endGameMedium(board[0][0]);
+        };
+
+        if (board[0][1] !== '' && board[0][1] === board[1][1] && board[1][1] === board[2][1]) {
+            return endGameMedium(board[0][1]);
+        };
+
+        if (board[0][2] !== '' && board[0][2] === board[1][2] && board[1][2] === board[2][2]) {
+            return endGameMedium(board[0][2]);
+        };
+
+        if (board[0][0] !== '' && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
+            return endGameMedium(board[0][0]);
+        };
+
+        if (board[2][0] !== '' && board[2][0] === board[1][1] && board[1][1] === board[0][2]) {
+            return endGameMedium(board[2][0]);
+        };
+
+        if ((remainingMoves - 1) === 0) {
+            return endGameMedium('');
+        };
+        setRemainingMoves((remainingMoves - 1));
     };
 
     return (

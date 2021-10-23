@@ -5,7 +5,7 @@ import StatusBarHard from './StatusBar';
 import AnimationHard from './Animation';
 import TitleHard from './Title';
 
-export default function Hard({ board, setBoard, startGameHard, currentPlayer, remainingMoves, setCurrentPlayer, verifyWinnerHard }) {
+export default function Hard({ board, setBoard, startGameHard, currentPlayer, remainingMoves, setRemainingMoves, setCurrentPlayer, endGameHard }) {
 
     function playHard(line, column) {
         board[line][column] = currentPlayer;
@@ -116,7 +116,6 @@ export default function Hard({ board, setBoard, startGameHard, currentPlayer, re
                     } while (board[line][column] !== '');
                     board[line][column] = 'O';
                 };
-
                 setCurrentPlayer('X');
 
                 if (currentPlayer === 'O') {
@@ -125,6 +124,45 @@ export default function Hard({ board, setBoard, startGameHard, currentPlayer, re
             };
             verifyWinnerHard(board, line, column);
         };
+    };
+
+    function verifyWinnerHard(board) {
+        if (board[0][0] !== '' && board[0][0] === board[0][1] && board[0][1] === board[0][2]) {
+            return endGameHard(board[0][0]);
+        };
+
+        if (board[1][0] !== '' && board[1][0] === board[1][1] && board[1][1] === board[1][2]) {
+            return endGameHard(board[1][0]);
+        };
+
+        if (board[2][0] !== '' && board[2][0] === board[2][1] && board[2][1] === board[2][2]) {
+            return endGameHard(board[2][0]);
+        };
+
+        if (board[0][0] !== '' && board[0][0] === board[1][0] && board[1][0] === board[2][0]) {
+            return endGameHard(board[0][0]);
+        };
+
+        if (board[0][1] !== '' && board[0][1] === board[1][1] && board[1][1] === board[2][1]) {
+            return endGameHard(board[0][1]);
+        };
+
+        if (board[0][2] !== '' && board[0][2] === board[1][2] && board[1][2] === board[2][2]) {
+            return endGameHard(board[0][2]);
+        };
+
+        if (board[0][0] !== '' && board[0][0] === board[1][1] && board[1][1] === board[2][2]) {
+            return endGameHard(board[0][0]);
+        };
+
+        if (board[2][0] !== '' && board[2][0] === board[1][1] && board[1][1] === board[0][2]) {
+            return endGameHard(board[2][0]);
+        };
+
+        if ((remainingMoves - 1) === 0) {
+            return endGameHard('');
+        };
+        setRemainingMoves((remainingMoves - 1));
     };
 
     return (
