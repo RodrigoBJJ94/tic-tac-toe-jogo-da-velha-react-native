@@ -100,7 +100,8 @@ export default function App() {
             <View style={Styles.container}>
                 <Easy
                     board={board} setBoard={setBoard} startGameEasy={startGameEasy} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves} endGame={endGame} />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves}
+                    setRemainingMoves={setRemainingMoves} endGame={endGame} />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -111,7 +112,8 @@ export default function App() {
             <View style={Styles.containerMedium}>
                 <Medium
                     board={board} setBoard={setBoard} startGameMedium={startGameMedium} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves} endGameMedium={endGameMedium} />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves}
+                    setRemainingMoves={setRemainingMoves} endGameMedium={endGameMedium} />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -122,7 +124,8 @@ export default function App() {
             <View style={Styles.containerHard}>
                 <Hard
                     board={board} setBoard={setBoard} startGameHard={startGameHard} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves} endGameHard={endGameHard} />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves}
+                    setRemainingMoves={setRemainingMoves} endGameHard={endGameHard} />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -133,7 +136,8 @@ export default function App() {
             <View style={Styles.containerVeryHard}>
                 <VeryHard
                     board={board} setBoard={setBoard} startGameVeryHard={startGameVeryHard} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves} endGameVeryHard={endGameVeryHard} />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves}
+                    setRemainingMoves={setRemainingMoves} endGameVeryHard={endGameVeryHard} />
                 <Back setScreen={setScreen} />
             </View>
         );
