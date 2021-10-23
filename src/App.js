@@ -81,7 +81,6 @@ export default function App() {
         if ((remainingMoves - 1) === 0) {
             return endGame('');
         };
-
         setRemainingMoves((remainingMoves - 1));
     };
 
@@ -121,7 +120,6 @@ export default function App() {
         if ((remainingMoves - 1) === 0) {
             return endGameMedium('');
         };
-
         setRemainingMoves((remainingMoves - 1));
     };
 
@@ -161,7 +159,6 @@ export default function App() {
         if ((remainingMoves - 1) === 0) {
             return endGameHard('');
         };
-
         setRemainingMoves((remainingMoves - 1));
     };
 
@@ -201,7 +198,6 @@ export default function App() {
         if ((remainingMoves - 1) === 0) {
             return endGameVeryHard('');
         };
-
         setRemainingMoves((remainingMoves - 1));
     };
 
@@ -250,8 +246,7 @@ export default function App() {
                 <Menu />
                 <MenuGame
                     startGameEasy={startGameEasy} startGameMedium={startGameMedium}
-                    startGameHard={startGameHard} startGameVeryHard={startGameVeryHard}
-                />
+                    startGameHard={startGameHard} startGameVeryHard={startGameVeryHard} />
             </View>
         );
     };
@@ -261,8 +256,7 @@ export default function App() {
             <View style={Styles.container}>
                 <Easy
                     board={board} setBoard={setBoard} startGameEasy={startGameEasy} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinner={verifyWinner}
-                />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinner={verifyWinner} />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -273,8 +267,7 @@ export default function App() {
             <View style={Styles.containerMedium}>
                 <Medium
                     board={board} setBoard={setBoard} startGameMedium={startGameMedium} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerMedium={verifyWinnerMedium}
-                />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerMedium={verifyWinnerMedium} />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -285,8 +278,7 @@ export default function App() {
             <View style={Styles.containerHard}>
                 <Hard
                     board={board} setBoard={setBoard} startGameHard={startGameHard} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerHard={verifyWinnerHard}
-                />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerHard={verifyWinnerHard} />
                 <Back setScreen={setScreen} />
             </View>
         );
@@ -297,8 +289,7 @@ export default function App() {
             <View style={Styles.containerVeryHard}>
                 <VeryHard
                     board={board} setBoard={setBoard} startGameVeryHard={startGameVeryHard} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerVeryHard={verifyWinnerVeryHard}
-                />
+                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves} verifyWinnerVeryHard={verifyWinnerVeryHard} />
                 <Back setScreen={setScreen} />
             </View>
         );
