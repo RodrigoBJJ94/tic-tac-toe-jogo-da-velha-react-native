@@ -1,14 +1,10 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
-import Styles from './Styles';
-import Winner from './pages/Winner/Winner';
-import Menu from './pages/Menu/Menu';
-import Easy from './pages/Easy/Easy';
-import Medium from './pages/Medium/Medium';
-import Hard from './pages/Hard/Hard';
-import VeryHard from './pages/VeryHard/VeryHard';
-import Back from './pages/Menu/Back';
-import MenuGame from './pages/Menu/MenuGame';
+import Menu from './pages/Menu/Menu/Menu';
+import Easy from './pages/Easy/Easy/Easy';
+import Medium from './pages/Medium/Medium/Medium';
+import Hard from './pages/Hard/Hard/Hard';
+import VeryHard from './pages/VeryHard/VeryHard/VeryHard';
+import Winner from './pages/Winner/Winner/Winner';
 
 export default function App() {
     const [screen, setScreen] = useState('menu');
@@ -86,69 +82,53 @@ export default function App() {
 
     function getScreenMenu() {
         return (
-            <View style={Styles.containerHome}>
-                <Menu />
-                <MenuGame
-                    startGameEasy={startGameEasy} startGameMedium={startGameMedium}
-                    startGameHard={startGameHard} startGameVeryHard={startGameVeryHard} />
-            </View>
+            <Menu
+                startGameEasy={startGameEasy} startGameMedium={startGameMedium}
+                startGameHard={startGameHard} startGameVeryHard={startGameVeryHard} />
         );
     };
 
     function getScreenGame() {
         return (
-            <View style={Styles.container}>
-                <Easy
-                    board={board} setBoard={setBoard} startGameEasy={startGameEasy} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves}
-                    setRemainingMoves={setRemainingMoves} endGame={endGame} />
-                <Back setScreen={setScreen} />
-            </View>
+            <Easy
+                board={board} setBoard={setBoard} startGameEasy={startGameEasy}
+                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer}
+                remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves}
+                endGame={endGame} setScreen={setScreen} />
         );
     };
 
     function getScreenGameMedium() {
         return (
-            <View style={Styles.containerMedium}>
-                <Medium
-                    board={board} setBoard={setBoard} startGameMedium={startGameMedium} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves}
-                    setRemainingMoves={setRemainingMoves} endGameMedium={endGameMedium} />
-                <Back setScreen={setScreen} />
-            </View>
+            <Medium
+                board={board} setBoard={setBoard} startGameMedium={startGameMedium}
+                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer}
+                remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves}
+                endGameMedium={endGameMedium} setScreen={setScreen} />
         );
     };
 
     function getScreenGameHard() {
         return (
-            <View style={Styles.containerHard}>
-                <Hard
-                    board={board} setBoard={setBoard} startGameHard={startGameHard} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves}
-                    setRemainingMoves={setRemainingMoves} endGameHard={endGameHard} />
-                <Back setScreen={setScreen} />
-            </View>
+            <Hard
+                board={board} setBoard={setBoard} startGameHard={startGameHard}
+                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer}
+                remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves}
+                endGameHard={endGameHard} setScreen={setScreen} />
         );
     };
 
     function getScreenGameVeryHard() {
         return (
-            <View style={Styles.containerVeryHard}>
-                <VeryHard
-                    board={board} setBoard={setBoard} startGameVeryHard={startGameVeryHard} currentPlayer={currentPlayer}
-                    setCurrentPlayer={setCurrentPlayer} remainingMoves={remainingMoves}
-                    setRemainingMoves={setRemainingMoves} endGameVeryHard={endGameVeryHard} />
-                <Back setScreen={setScreen} />
-            </View>
+            <VeryHard
+                board={board} setBoard={setBoard} startGameVeryHard={startGameVeryHard}
+                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer}
+                remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves}
+                endGameVeryHard={endGameVeryHard} setScreen={setScreen} />
         );
     };
 
     function getScreenWinner() {
-        return (
-            <View style={Styles.containerWin}>
-                <Winner winner={winner} />
-                <Back setScreen={setScreen} />
-            </View>
-        );
+        return <Winner winner={winner} setScreen={setScreen} />
     };
 };
