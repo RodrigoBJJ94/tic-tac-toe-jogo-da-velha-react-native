@@ -6,7 +6,7 @@ import AnimationHard from '../Animation/Animation';
 import TitleHard from '../Title/Title';
 import Back from '../../Back/Back';
 
-export default function Hard({ board, setBoard, startGameHard, currentPlayer, remainingMoves, setRemainingMoves, setCurrentPlayer, endGameHard, setScreen }) {
+export default function Hard({ board, setBoard, startGameHard, currentPlayer, remainingMoves, setRemainingMoves, setCurrentPlayer, setScreen, setWinner }) {
 
     function playHard(line, column) {
         board[line][column] = currentPlayer;
@@ -164,6 +164,12 @@ export default function Hard({ board, setBoard, startGameHard, currentPlayer, re
             return endGameHard('');
         };
         setRemainingMoves((remainingMoves - 1));
+    };
+
+    function endGameHard(player) {
+        setWinner(player);
+        startGameHard('X');
+        setScreen('winner');
     };
 
     return (

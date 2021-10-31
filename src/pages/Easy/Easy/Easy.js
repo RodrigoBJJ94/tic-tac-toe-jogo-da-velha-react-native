@@ -6,7 +6,7 @@ import AnimationEasy from '../Animation/Animation';
 import TitleEasy from '../Title/Title';
 import Back from '../../Back/Back';
 
-export default function Easy({ board, setBoard, startGameEasy, currentPlayer, setCurrentPlayer, remainingMoves, setRemainingMoves, endGame, setScreen }) {
+export default function Easy({ board, setBoard, startGameEasy, currentPlayer, setCurrentPlayer, remainingMoves, setRemainingMoves, setScreen, setWinner }) {
 
     function playEasy(line, column) {
         board[line][column] = currentPlayer;
@@ -66,6 +66,12 @@ export default function Easy({ board, setBoard, startGameEasy, currentPlayer, se
             return endGame('');
         };
         setRemainingMoves((remainingMoves - 1));
+    };
+
+    function endGame(player) {
+        setWinner(player);
+        startGameEasy('X');
+        setScreen('winner');
     };
 
     return (

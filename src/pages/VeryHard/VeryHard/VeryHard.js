@@ -6,7 +6,7 @@ import AnimationVeryHard from '../Animation/Animation';
 import TitleVeryHard from '../Title/Title';
 import Back from '../../Back/Back';
 
-export default function VeryHard({ board, setBoard, startGameVeryHard, currentPlayer, remainingMoves, setCurrentPlayer, endGameVeryHard, setRemainingMoves, setScreen }) {
+export default function VeryHard({ board, setBoard, startGameVeryHard, currentPlayer, remainingMoves, setCurrentPlayer, setRemainingMoves, setScreen, setWinner }) {
 
     function playVeryHard(line, column) {
         board[line][column] = currentPlayer;
@@ -182,6 +182,12 @@ export default function VeryHard({ board, setBoard, startGameVeryHard, currentPl
             return endGameVeryHard('');
         };
         setRemainingMoves((remainingMoves - 1));
+    };
+
+    function endGameVeryHard(player) {
+        setWinner(player);
+        startGameVeryHard('X');
+        setScreen('winner');
     };
 
     return (

@@ -6,7 +6,7 @@ import AnimationMedium from '../Animation/Animation';
 import TitleMedium from '../Title/Title';
 import Back from '../../Back/Back';
 
-export default function Medium({ board, setBoard, startGameMedium, currentPlayer, remainingMoves, setRemainingMoves, setCurrentPlayer, endGameMedium, setScreen }) {
+export default function Medium({ board, setBoard, startGameMedium, currentPlayer, remainingMoves, setRemainingMoves, setCurrentPlayer, setScreen, setWinner }) {
 
     function playMedium(line, column) {
         board[line][column] = currentPlayer;
@@ -116,6 +116,12 @@ export default function Medium({ board, setBoard, startGameMedium, currentPlayer
             return endGameMedium('');
         };
         setRemainingMoves((remainingMoves - 1));
+    };
+
+    function endGameMedium(player) {
+        setWinner(player);
+        startGameMedium('X');
+        setScreen('winner');
     };
 
     return (

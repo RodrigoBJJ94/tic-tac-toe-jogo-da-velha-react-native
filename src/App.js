@@ -13,56 +13,30 @@ export default function App() {
     const [remainingMoves, setRemainingMoves] = useState(0);
     const [winner, setWinner] = useState('');
 
-    function startGameEasy(player) {
+    function gameStart(player) {
         setCurrentPlayer(player);
         setRemainingMoves(5);
         setBoard([['', '', ''], ['', '', ''], ['', '', '']]);
+    };
+
+    function startGameEasy(player) {
+        gameStart(player);
         setScreen('game');
     };
 
     function startGameMedium(player) {
-        setCurrentPlayer(player);
-        setRemainingMoves(5);
-        setBoard([['', '', ''], ['', '', ''], ['', '', '']]);
+        gameStart(player);
         setScreen('medium');
     };
 
     function startGameHard(player) {
-        setCurrentPlayer(player);
-        setRemainingMoves(5);
-        setBoard([['', '', ''], ['', '', ''], ['', '', '']]);
+        gameStart(player);
         setScreen('hard');
     };
 
     function startGameVeryHard(player) {
-        setCurrentPlayer(player);
-        setRemainingMoves(5);
-        setBoard([['', '', ''], ['', '', ''], ['', '', '']]);
+        gameStart(player);
         setScreen('veryHard');
-    };
-
-    function endGame(player) {
-        setWinner(player);
-        startGameEasy('X');
-        setScreen('winner');
-    };
-
-    function endGameMedium(player) {
-        setWinner(player);
-        startGameMedium('X');
-        setScreen('winner');
-    };
-
-    function endGameHard(player) {
-        setWinner(player);
-        startGameHard('X');
-        setScreen('winner');
-    };
-
-    function endGameVeryHard(player) {
-        setWinner(player);
-        startGameVeryHard('X');
-        setScreen('winner');
     };
 
     switch (screen) {
@@ -91,40 +65,36 @@ export default function App() {
     function getScreenGame() {
         return (
             <Easy
-                board={board} setBoard={setBoard} startGameEasy={startGameEasy}
-                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer}
-                remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves}
-                endGame={endGame} setScreen={setScreen} />
+                board={board} startGameEasy={startGameEasy} remainingMoves={remainingMoves}
+                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} setScreen={setScreen}
+                setBoard={setBoard} setRemainingMoves={setRemainingMoves} setWinner={setWinner} />
         );
     };
 
     function getScreenGameMedium() {
         return (
             <Medium
-                board={board} setBoard={setBoard} startGameMedium={startGameMedium}
-                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer}
-                remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves}
-                endGameMedium={endGameMedium} setScreen={setScreen} />
+                board={board} startGameMedium={startGameMedium} remainingMoves={remainingMoves}
+                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} setScreen={setScreen}
+                setBoard={setBoard} setRemainingMoves={setRemainingMoves} setWinner={setWinner} />
         );
     };
 
     function getScreenGameHard() {
         return (
             <Hard
-                board={board} setBoard={setBoard} startGameHard={startGameHard}
-                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer}
-                remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves}
-                endGameHard={endGameHard} setScreen={setScreen} />
+                board={board} startGameHard={startGameHard} remainingMoves={remainingMoves}
+                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} setScreen={setScreen}
+                setBoard={setBoard} setRemainingMoves={setRemainingMoves} setWinner={setWinner} />
         );
     };
 
     function getScreenGameVeryHard() {
         return (
             <VeryHard
-                board={board} setBoard={setBoard} startGameVeryHard={startGameVeryHard}
-                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer}
-                remainingMoves={remainingMoves} setRemainingMoves={setRemainingMoves}
-                endGameVeryHard={endGameVeryHard} setScreen={setScreen} />
+                board={board} startGameVeryHard={startGameVeryHard} remainingMoves={remainingMoves}
+                currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} setScreen={setScreen}
+                setBoard={setBoard} setRemainingMoves={setRemainingMoves} setWinner={setWinner} />
         );
     };
 
