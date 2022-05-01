@@ -80,6 +80,38 @@ export default function Medium({ board, setBoard, startGameMedium, currentPlayer
     };
 
     function verifyWinnerMedium(board) {
+        if (board[0][0] === 'X' && board[0][1] === 'X' && board[0][2] === 'X') {
+            return endGameMedium(board[0][0]);
+        };
+
+        if (board[1][0] === 'X' && board[1][1] === 'X' && board[1][2] === 'X') {
+            return endGameMedium(board[1][0]);
+        };
+
+        if (board[2][0] === 'X' && board[2][1] === 'X' && board[2][2] === 'X') {
+            return endGameMedium(board[2][0]);
+        };
+
+        if (board[0][0] === 'X' && board[1][0] === 'X' && board[2][0] === 'X') {
+            return endGameMedium(board[0][0]);
+        };
+
+        if (board[0][1] === 'X' && board[1][1] === 'X' && board[2][1] === 'X') {
+            return endGameMedium(board[0][1]);
+        };
+
+        if (board[0][2] === 'X' && board[1][2] === 'X' && board[2][2] === 'X') {
+            return endGameMedium(board[0][2]);
+        };
+
+        if (board[0][0] === 'X' && board[1][1] === 'X' && board[2][2] === 'X') {
+            return endGameMedium(board[0][0]);
+        };
+
+        if (board[2][0] === 'X' && board[1][1] === 'X' && board[0][2] === 'X') {
+            return endGameMedium(board[2][0]);
+        };
+        
         if (board[0][0] !== '' && board[0][0] === board[0][1] && board[0][1] === board[0][2]) {
             return endGameMedium(board[0][0]);
         };

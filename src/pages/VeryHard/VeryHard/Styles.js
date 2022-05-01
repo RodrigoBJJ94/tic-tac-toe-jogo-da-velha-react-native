@@ -4,7 +4,7 @@ export default StyleSheet.create({
     containerVeryHard: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: "center",
         backgroundColor: 'rgb(250, 91, 69)',
     },
     playerX: {
@@ -13,7 +13,7 @@ export default StyleSheet.create({
     },
     playerO: {
         fontSize: 60,
-        color: '#fff'
+        color: '#fff',
     },
     boxPlayer: {
         width: Dimensions.get('screen').width / 3.15,

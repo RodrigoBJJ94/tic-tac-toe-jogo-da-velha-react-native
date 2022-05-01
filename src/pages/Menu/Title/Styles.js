@@ -6,6 +6,6 @@ export default StyleSheet.create({
         fontFamily: 'Montserrat-ExtraBold',
         color: '#fff',
         marginBottom: 210,
-        marginTop: 40,
+        marginTop: 20,
     }
 });
