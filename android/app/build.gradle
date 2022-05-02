@@ -131,8 +131,8 @@ android {
         applicationId "com.ticTacToeJogoDaVelha"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 4
-        versionName "1.24"
+        versionCode 5
+        versionName "1.5"
     }
     splits {
         abi {
